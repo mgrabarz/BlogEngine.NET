@@ -205,6 +205,19 @@
           "properties": {
             "applicationInsightsInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2014-04-01').InstrumentationKey]"
           }
+        },
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('websiteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "https://github.com/mgrabarz/BlogEngine.NET.git",
+            "branch": "master",
+            "IsManualIntegration": true
+          }
         }
       ]
     },
