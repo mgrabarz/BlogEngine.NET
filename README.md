@@ -8,9 +8,9 @@ This repository provides forked source code for BlogEngine.NET project (https://
 
 ## Get started
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgithub.com%2Fmgrabarz%2FBlogEngine.NET%2Fblob%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmgrabarz%2FBlogEngine.NET%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fgithub.com%2Fmgrabarz%2FBlogEngine.NET%2Fblob%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fmgrabarz%2FBlogEngine.NET%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
