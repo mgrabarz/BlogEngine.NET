@@ -1,17 +1,16 @@
 ## BlogEngine.NET Source Code
-This repository provides latest source code for BlogEngine.NET project (https://blogengine.codeplex.com)
+This repository provides forked source code for BlogEngine.NET project (https://blogengine.codeplex.com)
 
-## Environment
-  * Visual Studio 2015 Community +
-  * ASP.NET 4.5 +
+## Dev Environment (if needed)
+  * Visual Studio 2017 
+  * ASP.NET 4.5
+  * Azure SDK 2.9.6+
 
 ## Get started
-  1. Clone repository
-  2. Open solution in Visual Studio 2015
-  3. Builld and run solution to load website in the browser
-  4. Use admin/admin to log into website administration
 
-![dashboard-3](https://cloud.githubusercontent.com/assets/1932785/11760070/0012f9d8-a052-11e5-84a8-e9097cb85f23.png)
-
-## Themes
-We will share everything about themes and how you can create your own theme on [This page](http://francis.bio/BlogEngine/).
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmgrabarz%2FBlogEngine.NET%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fmgrabarz%2FBlogEngine.NET%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
+    <img src="http://armviz.io/visualizebutton.png"/>
+</a>
