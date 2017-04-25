@@ -130,7 +130,25 @@
             "collation": "[parameters('databaseCollation')]",
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "[parameters('databaseEditionTier')]"
-          }
+          },
+          "resources": [
+            {
+              "type": "extensions",
+              "apiVersion": "2014-04-01",
+              "properties": {
+                "operationMode": "Import",
+                "storageKey": "?",
+                "storageKeyType": "SharedAccessKey",
+                "administratorLogin": "[parameters('databaseAdministratorLogin')]",
+                "administratorLoginPassword": "[parameters('databaseAdministratorPassword')]",
+                "storageUri": "https://blogenginegithub.blob.core.windows.net/database/database.bacpac"
+              },
+              "name": "Import",
+              "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('sqlServerName'), parameters('databaseName'))]"
+              ]
+            }
+          ]
         },
         {
           "type": "firewallrules",
@@ -185,10 +203,15 @@
           "type": "config",
           "name": "connectionstrings",
           "dependsOn": [
-            "[resourceId('Microsoft.Web/Sites/', parameters('websiteName'))]"
+            "[resourceId('Microsoft.Web/Sites/', parameters('websiteName'))]",
+            "[resourceId('Microsoft.Web/Sites/sourcecontrols', parameters('websiteName'), 'web')]"
           ],
           "properties": {
             "DefaultConnection": {
+              "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('databaseAdministratorLogin'), '@', parameters('sqlServerName'), ';Password=', parameters('databaseAdministratorPassword'), ';')]",
+              "type": "SQLServer"
+            },
+            "BlogEngine": {
               "value": "[concat('Data Source=tcp:', reference(resourceId('Microsoft.Sql/servers/', parameters('sqlServerName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('databaseAdministratorLogin'), '@', parameters('sqlServerName'), ';Password=', parameters('databaseAdministratorPassword'), ';')]",
               "type": "SQLServer"
             }
@@ -200,7 +223,8 @@
           "name": "appsettings",
           "dependsOn": [
             "[resourceId('Microsoft.Web/Sites/', parameters('websiteName'))]",
-            "[resourceId('Microsoft.Insights/components/', parameters('applicationInsightsName'))]"
+            "[resourceId('Microsoft.Insights/components/', parameters('applicationInsightsName'))]",
+            "[resourceId('Microsoft.Web/Sites/sourcecontrols', parameters('websiteName'), 'web')]"
           ],
           "properties": {
             "applicationInsightsInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('applicationInsightsName')), '2014-04-01').InstrumentationKey]"
