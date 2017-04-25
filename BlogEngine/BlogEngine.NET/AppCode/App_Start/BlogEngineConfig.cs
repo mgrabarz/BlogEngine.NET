@@ -36,6 +36,8 @@ namespace BlogEngine.NET.App_Start
 
                 RegisterDiContainer();
 
+                InitializeApplicationInsights();
+
                 ScriptManager.ScriptResourceMapping.AddDefinition("jquery",
                     new ScriptResourceDefinition
                     {
@@ -47,6 +49,12 @@ namespace BlogEngine.NET.App_Start
 
                 _initializedAlready = true;
             }
+        }
+
+        private static void InitializeApplicationInsights()
+        {
+            Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
+            System.Web.Configuration.WebConfigurationManager.AppSettings["applicationInsightsInstrumentationKey"];
         }
 
         public static void SetCulture(object sender, EventArgs e)
