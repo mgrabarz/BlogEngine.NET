@@ -12,6 +12,7 @@ Template contains scalable BlogEngine deployment (on Azure WebApps), with dedica
 ## Get started
 
 Use buttons below to deploy/visualize preconfigured for Azure version of BlogEngine.NET.
+<br />
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmgrabarz%2FBlogEngine.NET%2Fmaster%2FBlogEngine%2FBlogEngine.ArmDeployment%2FWebSiteSQLDatabase.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
